@@ -1,13 +1,75 @@
 $(function () {
     $(document).on("click", "#alertInfo .close,.pop-hero .pop_hero_close,.pop_hero_close,.btn_determine", dialog.closeDiv);
 
-
     // 首屏视频
     var u = navigator.userAgent;
     var isAndroid = u.indexOf("Android") > -1 || u.indexOf("Linux") > -1;
     if (isAndroid) {
         $('.homeVideo').html('');
     }
+
+    // 整体框架
+    var page = new Swiper('.mySwiper', {
+        direction: "vertical",
+        slidesPerView: 1,
+        spaceBetween: 0,
+        mousewheel: true,
+        slidesPerView: "auto",
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        on: {
+            init: function (swiper) {
+                slide = this.slides.eq(0);
+                slide.addClass('ani-slide');
+            },
+            transitionStart: function () {
+                for (i = 0; i < this.slides.length; i++) {
+                    slide = this.slides.eq(i);
+                    slide.removeClass('ani-slide');
+                }
+            },
+            transitionEnd: function () {
+                console.log('this.activeIndex===' + this.activeIndex);
+                slide = this.slides.eq(this.activeIndex);
+
+                if (!slide.hasClass('ani-slide')) {
+                    // slide.addClass('ani-slide');
+                } else {
+                    console.log('已有');
+                }
+
+
+            },
+            slideChangeTransitionStart: function () {
+                console.log(this.activeIndex);
+                // argumentsTabs('.swp-nav .btn', page, this.activeIndex);
+                $('.swp-nav .after').stop().animate({ 'left': (this.activeIndex * 2.53) + 1.88 + 'rem' }, "88");
+                $('.swp-nav .btn').eq(this.activeIndex).addClass('curr').siblings().removeClass('curr');
+            },
+        },
+    });
+
+    // 玩法详情
+    var gallerySwiper = new Swiper('#gallery', {
+        spaceBetween: 10,
+        thumbs: {
+            swiper: {
+                el: '#thumbs',
+                spaceBetween: 85,
+                slidesPerView: 'auto',
+                watchSlidesVisibility: true,/*避免出现bug*/
+            },
+        }
+    });
+
+    // 缩略图操作
+    $(document).on('click', '#thumbs .swiper-slide', function (event) {
+        event.preventDefault();
+        let iNow = $(this).index();
+
+        gallerySwiper.slideTo(iNow, 1000, false);//切换到第一个slide，速度为1秒
+    });
+
 
     // 灯笼收缩
     $('.lantern-btn').on('click', function (param) {
@@ -64,58 +126,7 @@ $(function () {
         };
     });
 
-
-
-
-    // 活动规则
-    $('.lantern-hdgz').on('click', function () {
-        dialog.alertPop_gz();
-    });
-
-    // 整体框架
-    var page = new Swiper('.mySwiper', {
-        direction: "vertical",
-        slidesPerView: 1,
-        spaceBetween: 0,
-        mousewheel: true,
-        slidesPerView: "auto",
-        watchSlidesProgress: true,
-        watchSlidesVisibility: true,
-        on: {
-            init: function (swiper) {
-                slide = this.slides.eq(0);
-                slide.addClass('ani-slide');
-            },
-            transitionStart: function () {
-                for (i = 0; i < this.slides.length; i++) {
-                    slide = this.slides.eq(i);
-                    slide.removeClass('ani-slide');
-                }
-            },
-            transitionEnd: function () {
-                console.log('this.activeIndex===' + this.activeIndex);
-                slide = this.slides.eq(this.activeIndex);
-
-                if (!slide.hasClass('ani-slide')) {
-                    // slide.addClass('ani-slide');
-                } else {
-                    console.log('已有');
-                }
-
-
-            },
-            slideChangeTransitionStart: function () {
-                console.log(this.activeIndex);
-                // argumentsTabs('.swp-nav .btn', page, this.activeIndex);
-                $('.swp-nav .after').stop().animate({ 'left': (this.activeIndex * 2.53) + 1.88 + 'rem' }, "88");
-                $('.swp-nav .btn').eq(this.activeIndex).addClass('curr').siblings().removeClass('curr');
-            },
-        },
-    });
-
     argumentsTabs('.swp-nav .btn', page);
-
-
     // 公告新闻
     newsTabs('.news-tabs .btn', '.news-box .show');
 });

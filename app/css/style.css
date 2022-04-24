@@ -526,7 +526,6 @@ body {
     width: 4.97rem;
     height: 2.51rem;
     margin: 1.5rem auto 0rem;
-
 }
 
 .page2 .sec-notice .lihui {
@@ -739,9 +738,210 @@ body {
 .page3 {
     width: 100%;
     height: 100%;
-    background: url(../images/page2/bg.jpg) no-repeat center 0 / 25.6rem 14.4rem;
+    background: url(../images/page3/bg.jpg) no-repeat center 0 / 25.6rem 14.4rem;
     position: relative;
     overflow: hidden;
+}
+
+.page3 .sec-wanfa .title {
+    width: 4.97rem;
+    height: 2.51rem;
+    margin: 1.5rem auto 0rem;
+}
+
+.page3 .wanfa {
+    position: relative;
+    margin-top: 0.3rem;
+}
+
+/* Grid */
+.grid {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    perspective: 800px;
+    perspective-origin: 50% 100%;
+}
+
+.grid__item {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 7.7rem;
+    margin: 0 .4rem;
+    cursor: default;
+    transform-style: preserve-3d;
+}
+
+.grid__item:hover, .grid__item:focus {
+    outline: none;
+}
+
+.grid__item--c1 .zhuangshi {
+    display: block;
+    width: 2.94rem;
+    height: 2.3rem;
+    background: url(../images/page3/c1-after.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    left: -1rem;
+    bottom: -0.8rem;
+    z-index: 0;
+    opacity: 1 !important;
+}
+
+.grid__item--c3 .zhuangshi {
+    display: block;
+    width: 2.94rem;
+    height: 2.3rem;
+    background: url(../images/page3/c3-after.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    right: -1rem;
+    top: -0.8rem;
+    z-index: 0;
+    opacity: 1 !important;
+}
+
+
+.stack {
+    position: relative;
+    width: 100%;
+    height: 5.8rem;
+    transform-style: preserve-3d;
+}
+
+.stack__deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    /* height: 100%; */
+    width: 7.7rem;
+    height: 5.8rem;
+    background-color: currentColor;
+    transform-origin: 50% 100%;
+    opacity: 0;
+    background: url(../images/page3/hover.png) no-repeat 0 0 / 100% 100%;
+}
+
+.stack__figure {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-origin: 50% 100%;
+    z-index: 2;
+}
+
+.stack__img {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 100%;
+}
+
+.wanfa .btn-more {
+    width: 3.44rem;
+    height: .88rem;
+    background: url(../images/page3/btn-more.png) no-repeat 0 0 / 100% 100%;
+    margin: 1rem auto 0;
+}
+
+/* Hamal */
+.grid--effect-hamal {
+    perspective: none;
+}
+
+.grid--effect-hamal .column {
+    opacity: 1;
+}
+
+.wamfa-pop {
+    position: absolute;
+    width: 100%;
+    height: 14.4rem;
+    background: url(../images/page3/wamfa-pop.jpg) no-repeat 0 0 / 100% 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wamfa-pop .swiper, .wamfa-pop .swiper .swiper-slide {
+    background: none;
+}
+
+#gallery .pop-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+
+}
+
+#gallery .pop-content .pic {
+    width: 14.7rem;
+    height: 8.68rem;
+}
+
+#gallery .pop-content .msg-txt {
+    width: 7.8rem;
+    color: #fff;
+    font-size: .3rem;
+    font-family: "STKaiTiTcBold";
+    line-height: .5rem;
+}
+
+#thumbs {
+    width: 100%;
+    height: 2.18rem;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    margin-left: -50%;
+}
+
+#thumbs .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#thumbs .swiper-slide {
+    width: 3.2rem !important;
+    height: 2.18rem;
+    padding: .1rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#thumbs .swiper-slide img {
+    width: 3rem;
+    background: #999;
+    transition: all 400ms;
+}
+
+#thumbs .swiper-slide:hover img {
+    transform: scale(0.95)
+}
+
+#thumbs .swiper-slide-thumb-active {
+    background: url(../images/page3/thumbs-curr.png) no-repeat 0 0 / 100% 100%;
+}
+
+.wamfa-pop .wamfa-close {
+    width: .64rem;
+    height: .64rem;
+    background: url(../images/page3/wanfa-close.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
 }
 
 /* page4 */
