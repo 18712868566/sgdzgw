@@ -49,6 +49,47 @@ $(function () {
         },
     });
 
+
+
+    // 查看详情 
+    $(document).on('click', '.page3 .btn-more,.grid .grid__item ', function (event) {
+        event.preventDefault();
+        $('.wamfa-pop').show();
+
+        let iNow = $(this).index();
+
+        console.log(iNow);
+
+        anime({
+            targets: '.page3 .wamfa-pop',
+            duration: 1000,
+            easing: 'easeOutExpo',
+            opacity: 1,
+            begin: function (anime) {
+                gallerySwiper.slideTo(iNow, 1000, false);//切换到第一个slide，速度为1秒
+            }
+        });
+    });
+
+    // 查看详情关闭
+    $(document).on('click', '.wamfa-pop .wamfa-close', function (event) {
+        event.preventDefault();
+        console.log('close');
+        anime({
+            targets: '.page3 .wamfa-pop',
+            duration: 1000,
+            easing: 'easeOutExpo',
+            opacity: 0,
+            begin: function (anime) {
+                console.log('end');
+                setTimeout(() => {
+                    $('.wamfa-pop').hide();
+                }, 1000);
+            }
+        });
+    });
+
+
     // 玩法详情
     var gallerySwiper = new Swiper('#gallery', {
         spaceBetween: 10,
@@ -127,6 +168,7 @@ $(function () {
     });
 
     argumentsTabs('.swp-nav .btn', page);
+
     // 公告新闻
     newsTabs('.news-tabs .btn', '.news-box .show');
 });
@@ -141,7 +183,7 @@ function argumentsTabs(tabList, page) {
         // 跟随横条
         console.log(index);
         $(this).siblings('.swp-nav .after').stop().animate({ 'left': (index * 2.53) + 1.88 + 'rem' }, "88");
-    }).eq(2).click();
+    }).eq(0).click();
 };
 
 
