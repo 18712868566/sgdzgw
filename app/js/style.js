@@ -1,5 +1,4 @@
 $(function () {
-    $(document).on("click", "#alertInfo .close,.pop-hero .pop_hero_close,.pop_hero_close,.btn_determine", dialog.closeDiv);
 
     // 首屏视频
     var u = navigator.userAgent;
@@ -171,6 +170,8 @@ $(function () {
 
     // 公告新闻
     newsTabs('.news-tabs .btn', '.news-box .show');
+    // 武将介绍
+    heroTabs('.tabs-heronav .hitem', '.tabs-heros .show');
 });
 
 function argumentsTabs(tabList, page) {
@@ -183,7 +184,7 @@ function argumentsTabs(tabList, page) {
         // 跟随横条
         console.log(index);
         $(this).siblings('.swp-nav .after').stop().animate({ 'left': (index * 2.53) + 1.88 + 'rem' }, "88");
-    }).eq(0).click();
+    }).eq(3).click();
 };
 
 
@@ -193,6 +194,20 @@ function newsTabs(tabList, tabBox) {
         $(this).addClass('curr').siblings().removeClass('curr');
         var index = $div_li.index(this);
         $(tabBox).eq(index).show().siblings().hide();
+
+    }).eq(0).click();
+};
+
+
+function heroTabs(tabList, tabBox) {
+    var $div_li = $(tabList);
+    $div_li.click(function () {
+        $(this).addClass('curr').siblings().removeClass('curr');
+        var index = $div_li.index(this);
+        $(tabBox).eq(index).show().siblings().hide();
+
+
+        $(this).siblings('.move-curr').stop().animate({ 'top': (index * 1.38) - 0.21 + 'rem' }, "88");
 
     }).eq(0).click();
 };
