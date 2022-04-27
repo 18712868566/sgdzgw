@@ -137,34 +137,6 @@ $(function () {
         dialog.alertVideo(vUrl)
     });
 
-    // 点击播放音频
-    var indexAudio = $('#mp3Btn')[0];
-
-    // hero cv
-    $(document).on('click', '.pop-hero .btn-cv-play', function () {
-        $(this).toggleClass('cv-open');
-        // cv 控制
-        indexAudio = $('#mp3Btn')[0];
-        indexAudio.src = '';
-
-        var musrc_url = $(this).attr('data-url');
-
-        if ($(this).hasClass('cv-open')) {
-            indexAudio.src = musrc_url;
-            indexAudio.pause();
-            indexAudio.play();
-        } else {
-            indexAudio = $('#mp3Btn')[0];
-            indexAudio.pause();
-            indexAudio.src = '';
-        }
-
-        // 监听音频结束后 重置播放按钮
-        indexAudio.onended = function (param) {
-            let oEle = $('.pop-hero .btn-cv-play');
-            $('.pop-hero .btn-cv-play').removeClass('cv-open');
-        };
-    });
 
     argumentsTabs('.swp-nav .btn', page);
 
@@ -194,8 +166,7 @@ function newsTabs(tabList, tabBox) {
         $(this).addClass('curr').siblings().removeClass('curr');
         var index = $div_li.index(this);
         $(tabBox).eq(index).show().siblings().hide();
-
-    }).eq(0).click();
+    }).eq(3).click();
 };
 
 
@@ -204,8 +175,11 @@ function heroTabs(tabList, tabBox) {
     $div_li.click(function () {
         $(this).addClass('curr').siblings().removeClass('curr');
         var index = $div_li.index(this);
-        $(tabBox).eq(index).show().siblings().hide();
 
+        console.log(index);
+
+        // $(tabBox).eq(index).show().siblings().hide();
+        $(tabBox).eq(index).addClass('anime').siblings().removeClass('anime');
 
         $(this).siblings('.move-curr').stop().animate({ 'top': (index * 1.38) - 0.21 + 'rem' }, "88");
 
