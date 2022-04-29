@@ -7,6 +7,7 @@
 
 3. 先全局安装
 
+
 ```
     npm install --global gulp
     cnpm install --global gulp
@@ -16,6 +17,8 @@
 
 5. 安装完毕之后 常用 命令
 
+
+6. 测试github dev 笔记功能
 ```
     gulp del  --------------  手动删除 编译到 dist下的所有文件
 
