@@ -156,7 +156,7 @@ function argumentsTabs(tabList, page) {
         // 跟随横条
         console.log(index);
         $(this).siblings('.swp-nav .after').stop().animate({ 'left': (index * 2.53) + 1.88 + 'rem' }, "88");
-    }).eq(3).click();
+    }).eq(4).click();
 };
 
 

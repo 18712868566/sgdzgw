@@ -493,6 +493,15 @@ body {
     transform: translate(-50%, -50%);
 }
 
+
+.page1 .homeVideo video {
+    position: absolute;
+    object-fit: fill;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .page1::after {
     content: '';
     display: block;
@@ -1387,36 +1396,22 @@ body {
     width: 12.1rem;
 }
 
-.banner-container li.curr:nth-child(1) {
-    background: url(../images/page5/img-slide-1.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
 
-.banner-container li.curr:nth-child(2) {
-    background: url(../images/page5/img-slide-2.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
 
-.banner-container li.curr:nth-child(3) {
-    background: url(../images/page5/img-slide-3.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
-.banner-container li.curr:nth-child(4) {
-    background: url(../images/page5/img-slide-4.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
-.banner-container li.curr:nth-child(5) {
-    background: url(../images/page5/img-slide-5.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
 
 .banner-container li.curr a {
-    display: inline-block;
+    display: block;
     width: 11.05rem;
     height: 6.28rem;
+    margin-top: 0.5rem;
+    position: absolute;
+    left: 1.1rem;
 }
 
 .banner-container li.curr a img {
     width: 98%;
     display: block;
-    margin: .5rem auto 0;
+    margin: 0 auto;
 }
 
 .banner-container li.curr span.overlay {
