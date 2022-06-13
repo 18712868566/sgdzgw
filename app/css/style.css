@@ -286,7 +286,7 @@ body {
     height: 1.75rem;
     background: url(../images/logo.png) no-repeat 0 0 / 100% 100%;
     position: absolute;
-    top: 0;
+    top: 1.18rem;
     left: .5rem;
 }
 
@@ -408,7 +408,7 @@ body {
 
 .lantern-center {
     width: 3.65rem;
-    height: 7.12rem;
+    height: 7.77rem;
     background: url(../images/page2/lantern-center.png) no-repeat 0 0 / 100% 100%;
     position: absolute;
     overflow: hidden;
@@ -446,7 +446,7 @@ body {
 .lantern-center .btn-rwm {
     width: 1.82rem;
     height: 1.82rem;
-    margin: 0.5rem auto 0;
+    margin: 0.45rem auto 0;
     background-position: 0 -.98rem;
 }
 
@@ -470,6 +470,12 @@ body {
     background-position: -0.09rem -5.05rem;
     margin: .4rem auto 0;
 }
+.lantern-center .btn-discord {
+    width: 1.73rem;
+    height: .52rem;
+    background: url(../images/page2/btn-discord.png) no-repeat 0 0 / 100% 100%;
+    margin: .1rem auto 0;
+}
 
 /* 侧边悬浮 end*/
 
@@ -483,14 +489,22 @@ body {
 }
 
 .page1 .homeVideo {
+    overflow: hidden;
     position: absolute;
-    /* width: 100%; */
-    height: 100%;
-    object-fit: fill;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.page1 .homeVideo video {
+    position: absolute;
     top: 50%;
     left: 50%;
-    /* margin-left: -50%; */
     transform: translate(-50%, -50%);
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .page1::after {
@@ -970,6 +984,8 @@ body {
     width: 4.97rem;
     height: 2.51rem;
     margin: 1.2rem auto 0rem;
+    position: relative;
+    z-index: 9;
 }
 
 
@@ -1170,7 +1186,7 @@ body {
     height: 7.5rem;
     position: absolute;
     top: 50%;
-    margin-top: -3.4rem;
+    margin-top: -4rem;
     right: 1rem;
     z-index: 10;
 }
@@ -1387,36 +1403,20 @@ body {
     width: 12.1rem;
 }
 
-.banner-container li.curr:nth-child(1) {
-    background: url(../images/page5/img-slide-1.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
-.banner-container li.curr:nth-child(2) {
-    background: url(../images/page5/img-slide-2.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
-.banner-container li.curr:nth-child(3) {
-    background: url(../images/page5/img-slide-3.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
-.banner-container li.curr:nth-child(4) {
-    background: url(../images/page5/img-slide-4.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
-.banner-container li.curr:nth-child(5) {
-    background: url(../images/page5/img-slide-5.png) no-repeat 1.05rem center / 11.05rem 6.28rem;
-}
-
+/* 2022年5月5日16:48:07 change */
 .banner-container li.curr a {
-    display: inline-block;
+    display: block;
     width: 11.05rem;
     height: 6.28rem;
+    margin-top: 0.5rem;
+    position: absolute;
+    left: 1.1rem;
 }
 
 .banner-container li.curr a img {
     width: 98%;
     display: block;
-    margin: .5rem auto 0;
+    margin: 0 auto;
 }
 
 .banner-container li.curr span.overlay {
@@ -1641,7 +1641,7 @@ body {
 .news {
     width: 100%;
     min-height: 100%;
-    background: url(../images/page2/bg.jpg) no-repeat center 0 / 100% 100%;
+    background: url(../images/news/bg.jpg) no-repeat center 0 / 100% 100%;
     background-attachment: fixed;
     margin-left: auto;
     margin-right: auto;
@@ -1691,6 +1691,7 @@ body {
     padding: .08rem;
     color: #fff;
     font-size: .22rem;
+    transition: all 300ms;
 }
 
 .news .news-tabbox .btn-items dl dt b {
@@ -1724,15 +1725,16 @@ body {
     transition: right 300ms;
 }
 
-.news .news-tabbox .btn-items:hover dd {
+.news .news-tabbox .btn-items:hover dd ,.news .news-tabbox .btn-items:hover b{
     color: #ff0000;
 }
 
 .news .news-tabbox .btn-items:hover dl:after {
     right: .4rem;
 }
-
-
+.news .news-tabbox .btn-items:hover span{
+    background: #3f2f13;
+}
 
 .news .news-tabnav {
     width: 12.74rem;
@@ -1820,15 +1822,21 @@ body {
 .hero-detail {
     width: 100%;
     min-height: 100%;
-    background: url(../images/page4/detail/bg.jpg) no-repeat center 0 / 100% 100%;
+    /* background: url(../images/page4/detail/bg.jpg) no-repeat center 0 / 100% 100%; */
+    background: url(../images/heros/herobg.jpg) no-repeat center 0 / 100% 100%;
     background-attachment: fixed;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     list-style: none;
     padding: 0;
     z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1.32rem;
+    display: none;
 }
 
 .hero-detail .btn-back {
@@ -1838,6 +1846,7 @@ body {
     position: absolute;
     top: 1.5rem;
     right: .8rem;
+    z-index: 9;
 }
 
 .hero-detail .tabs-heronav {
@@ -1867,6 +1876,26 @@ body {
     left: 0.15rem;
 }
 
+.btn_herolist{
+    width: .87rem;
+    height: 1.65rem;
+    background: url(../images/page4/btn_more.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    right: .75rem;
+    bottom: -1.6rem;
+    transition: all 300ms;
+}
+
+
+.btn_herolist:hover {
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+    box-shadow: 0 .1rem .1rem -0.1rem rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+
 .hero-box {
     width: 100%;
     height: 100vh;
@@ -1877,7 +1906,6 @@ body {
 .hero-box .show {
     width: 100%;
     height: 100%;
-    display: none;
 }
 
 
@@ -1891,7 +1919,7 @@ body {
 .hero-content .hero-swp-msg {
     position: absolute;
     top: 2.7rem;
-    left: 3.1rem;
+    left: 4.1rem;
     width: 8.5rem;
     padding: .1rem;
 }
@@ -1899,7 +1927,7 @@ body {
 .hero-content .hero-swp-msg {}
 
 .hero-content .hero-swp-msg .name {
-    height: 1.14rem;
+    height: 1.29rem;
 }
 
 .hero-content .hero-swp-msg .name-line {
@@ -2046,6 +2074,46 @@ body {
     height: 1.6rem;
 }
 
+.hero-miaoshu .attribute{
+    width: 8.32rem;
+    height: 1.73rem;
+    background: url(../images/heros/attribute.png) no-repeat 0 0 / 100% 100%;
+    margin-top: .8rem;
+    position: relative;
+}
+
+.hero-miaoshu .attribute p{
+    color: #b19d60;
+    font-size: .54rem;
+    width: 2.6rem;
+    text-align: center;
+    position: absolute;
+}
+.hero-miaoshu .attribute .attr-gj{
+    left: 1.1rem;
+}
+.hero-miaoshu .attribute .attr-ml{
+    left: 5.7rem;
+}
+.hero-miaoshu .attribute .attr-fy{
+    top: 1.15rem;
+    left: 1.1rem;
+}
+.hero-miaoshu .attribute .attr-bl{
+    top: 1.15rem;
+    left: 5.7rem;
+}
+
+.hero-content .heor-mask{
+    width: 4.02rem;
+    height: 3.14rem;
+    background: url(../images/page4/detail/mask.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+
 /* 三级详情页 */
 .detail {
     width: 16.15rem;
@@ -2143,3 +2211,176 @@ body {
         background-size: 100% 100%;
     }
 }
+
+
+
+/* heros */
+.heros {
+    width: 100%;
+    min-height: 100%;
+    background: url(../images/heros/bg.jpg) no-repeat center 0 / 100% 100%;
+    background-attachment: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    padding: 1rem;
+}
+
+.heros .title {
+    width: 4.97rem;
+    height: 2.51rem;
+    margin: 1rem auto 0rem;
+}
+
+
+.heros .news-content {
+    width: 12.74rem;
+    margin: 0 auto;
+}
+
+
+/* 英雄列表 */
+.heros-center{
+    width: 18.5rem;
+    height: 8.3rem;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.heros-center .heros-tabs{
+    width: 1.33rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.heros-center .heros-tabs p{
+    width: 1.09rem;
+    height: 1.09rem;
+    background: url(../images/heros/tabs.png) no-repeat 0 0 / 3.34rem 6.64rem;
+    margin: 0 auto .3rem;
+    cursor: pointer;
+}
+
+.heros-center .heros-tabs p:nth-child(1){
+    margin-top: .8rem;
+}
+.heros-center .heros-tabs p:nth-child(2){
+    background-position: 0 -1.42rem;
+}
+.heros-center .heros-tabs p:nth-child(3){
+    background-position: 0 -2.8rem;
+
+}
+.heros-center .heros-tabs p:nth-child(4){
+    background-position: 0 -4.17rem;
+
+}
+.heros-center .heros-tabs p:nth-child(5){
+    background-position: 0 -5.55rem;
+}
+
+.heros-center .heros-tabs p.curr:nth-child(1),.heros-center .heros-tabs p:nth-child(1):hover{
+    margin-top: .8rem;
+    background-position: -2.25rem 0;
+}
+.heros-center .heros-tabs p.curr:nth-child(2),.heros-center .heros-tabs p:nth-child(2):hover{
+    background-position: -2.25rem -1.42rem;
+}
+.heros-center .heros-tabs p.curr:nth-child(3),.heros-center .heros-tabs p:nth-child(3):hover{
+    background-position: -2.25rem -2.8rem;
+
+}
+.heros-center .heros-tabs p.curr:nth-child(4),.heros-center .heros-tabs p:nth-child(4):hover{
+    background-position: -2.25rem -4.17rem;
+
+}
+.heros-center .heros-tabs p.curr:nth-child(5),.heros-center .heros-tabs p:nth-child(5):hover{
+    background-position: -2.25rem -5.55rem;
+}
+
+
+.heros-heroimg {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+   
+}
+.heros-heroimg .show{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: 8rem;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: .15rem;
+    margin-right: .05rem;
+}
+
+.heros-heroimg .show p{
+    width: 1.82rem;
+    height: 2.67rem;
+    margin: 1rem .45rem 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.heros-heroimg .show .name{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: .42rem;
+    height: 2.28rem;
+    z-index: 9;
+    opacity: 0;
+    transition: all 300ms;
+}
+.heros-heroimg .show p:hover .name{
+    opacity: 1;
+}
+
+
+.heros-heroimg .show p::after{
+    content: '';
+    display: block;
+    width: 1.82rem;
+    height: 2.67rem;
+    background: url(../images/heros/after.png) no-repeat 0 0 / 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 300ms;
+    opacity: 0;
+    z-index: 1;
+}
+.heros-heroimg .show p:hover::after{
+    opacity: 1;
+}
+
+.show::-webkit-scrollbar {
+    width: .1rem;
+}
+.show::-webkit-scrollbar-track{
+    background: #fafafa;
+    border-radius: .15rem;
+}
+.show::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 15px;
+}
+
+.show::-webkit-scrollbar-thumb:hover{
+    background: #e30d00;
+}
+
+
