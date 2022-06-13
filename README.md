@@ -7,6 +7,7 @@
 
 3. 先全局安装
 
+
 ```
     npm install --global gulp
     cnpm install --global gulp
@@ -26,6 +27,7 @@
 
 6. 已加入字蛛 检测字体 打包时自动压缩字体
 
+7. github dev 笔记功能
 ---
 
 [参考链接--博客园](https://www.cnblogs.com/cckui/p/10913040.html)

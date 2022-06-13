@@ -48,8 +48,6 @@ $(function () {
         },
     });
 
-
-
     // 查看详情 
     $(document).on('click', '.page3 .btn-more,.grid .grid__item ', function (event) {
         event.preventDefault();
@@ -87,7 +85,6 @@ $(function () {
             }
         });
     });
-
 
     // 玩法详情
     var gallerySwiper = new Swiper('#gallery', {
@@ -144,6 +141,22 @@ $(function () {
     newsTabs('.news-tabs .btn', '.news-box .show');
     // 武将介绍
     heroTabs('.tabs-heronav .hitem', '.tabs-heros .show');
+
+    // 监听url参数跳转到指定模块
+    let aUrlData = getUrlData();
+    if (aUrlData) {
+        let sStr = aUrlData[0].slice(aUrlData[0].length - 1);
+        let iStr = Number.parseInt(sStr);
+
+        console.log(iStr);
+
+        page.slideTo(iStr, 800, false);//切换到第一个slide，速度为1秒
+        $('.swp-nav .btn').eq(iStr).addClass('curr').siblings().removeClass('curr');
+        $('.swp-nav .after').stop().animate({ 'left': (iStr * 2.53) + 1.88 + 'rem' }, "88");
+    }
+
+
+
 });
 
 function argumentsTabs(tabList, page) {
@@ -156,7 +169,11 @@ function argumentsTabs(tabList, page) {
         // 跟随横条
         console.log(index);
         $(this).siblings('.swp-nav .after').stop().animate({ 'left': (index * 2.53) + 1.88 + 'rem' }, "88");
+<<<<<<< HEAD
     }).eq(4).click();
+=======
+    }).eq(0).click();
+>>>>>>> 0ff4477814eeb7bf2b933eb5f11fe23485dbe6be
 };
 
 
@@ -166,7 +183,7 @@ function newsTabs(tabList, tabBox) {
         $(this).addClass('curr').siblings().removeClass('curr');
         var index = $div_li.index(this);
         $(tabBox).eq(index).show().siblings().hide();
-    }).eq(3).click();
+    }).eq(0).click();
 };
 
 
@@ -185,3 +202,29 @@ function heroTabs(tabList, tabBox) {
 
     }).eq(0).click();
 };
+
+
+function getUrlData() {
+    var url = window.location.href; //获取当前页面的url
+    // console.log(url)
+    if (url.indexOf('?page') == -1) {
+        var arr = url;
+        console.log('没找到');
+    } else {
+        arr = url.split("?")[1].split("&");
+        // console.log('找到了');
+        var enUrl = decodeURI(url); //解码
+        var len = enUrl.length; //获取url的长度值
+        var a = enUrl.indexOf("?"); //获取第一次出现？的位置下标
+        var b = enUrl.substr(a + 1, len); //截取问号之后的内容
+        var c = b.split("&"); //从指定的地方将字符串分割成字符串数组
+        var arr = new Array(); //新建一个数组
+        for (var i = 0; i < c.length; i++) {
+            var d = c[i].split("=")[1]; //从=处将字符串分割成字符串数组,并选择第2个元素
+            arr.push(d); //将获取的元素存入到数组中
+        }
+
+        return arr;
+    }
+};
+
